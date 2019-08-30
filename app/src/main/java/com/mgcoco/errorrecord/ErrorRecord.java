@@ -21,7 +21,7 @@ import java.util.List;
 
 public class ErrorRecord {
 
-    public static ErrorRecord sInstance;
+    private static ErrorRecord sInstance;
     private Context mContext;
     private boolean mIsWriteExternal;
 
