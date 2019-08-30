@@ -43,14 +43,14 @@ public class ErrorRecordAdapter extends RecyclerView.Adapter<ErrorRecordAdapter.
     }
 
     @Override
-    public ErrorRecordAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_title_date, parent, false);
-        ErrorRecordAdapter.ViewHolder vh = new ErrorRecordAdapter.ViewHolder(v);
+        ViewHolder vh = new ViewHolder(v);
         return vh;
     }
 
     @Override
-    public void onBindViewHolder(final ErrorRecordAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
 
         holder.time.setText(mData.get(position).getTime());
         holder.title.setText(mData.get(position).getMessage());
