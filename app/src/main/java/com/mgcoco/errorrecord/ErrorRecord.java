@@ -39,7 +39,13 @@ public class ErrorRecord {
             @Override
             public void uncaughtException(Thread paramThread, Throwable paramThrowable) {
                 Gson gson = new Gson();
-                List<ErrorLog> error = gson.fromJson(PrefUtil.getStringPreference(mContext, "ERROR_RECORD"), new TypeToken<List<ErrorLog>>(){}.getType());
+                List<ErrorLog> error;
+                try {
+                    error = gson.fromJson(PrefUtil.getStringPreference(mContext, "ERROR_RECORD"), new TypeToken<List<ErrorLog>>(){}.getType());
+                }
+                catch (Exception e){
+                    error = new ArrayList<>();
+                }
 
                 System.out.println("setDefaultUncaughtExceptionHandler:" + PrefUtil.getStringPreference(mContext, "ERROR_RECORD"));
                 SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
